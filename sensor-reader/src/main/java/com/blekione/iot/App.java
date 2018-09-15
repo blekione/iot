@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class App {
     public static void main( String[] args ) throws Exception {
-        System.out.println(args[0]);
         InputStream config = App.class.getClassLoader().getResourceAsStream("config.json");
         System.out.println("config" + config);
         ObjectMapper mapper = new ObjectMapper();

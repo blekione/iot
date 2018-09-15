@@ -172,7 +172,6 @@ public class IOTNode {
     public double  getResourceValue(String resource) throws URISyntaxException, IOException {
         final String resourceValueString = reader.getResource(getResourceURI(resource));
         final ObjectMapper mapper = new ObjectMapper();
-        System.out.println(resourceValueString);
         return mapper.readTree(resourceValueString).elements().next().asDouble();
     }
 
