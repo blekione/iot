@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh 'mvn clean install'
                 jacoco( 
-                    execPattern: '**/target/*.exec,
+                    execPattern: '**/target/*.exec',
                     sourcePattern: 'src/main/java',
                     exclusionPattern: 'src/test*'
                 )
