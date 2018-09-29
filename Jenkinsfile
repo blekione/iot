@@ -20,14 +20,14 @@ pipeline {
         }
         stage('Analysis') {
             steps {
-               sh 'mvn --batch-mode -V -U -e pmd:pmd'
+                sh 'mvn --batch-mode -V -U -e pmd:pmd'
+                jacoco()
             }
         }
     }
     post {
         success {
-            jacoco()
-            recordIssues tools: [[tool: [$class 'Pmd'], pattern: '**/target/pmd.xml']]
+            recordIssues enableForFailure: true, tools: [[pattern: '**/target/pmd.xml', tool: [$class 'Pmd']]]
         }
     }
 }
