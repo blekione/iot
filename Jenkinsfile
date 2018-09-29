@@ -27,7 +27,7 @@ pipeline {
     }
     post {
         success {
-            recordIssues enableForFailure: true, tools: [[pattern: '**/target/pmd.xml', tool: [$class: 'Pmd']]]
+            recordIssues enabledForFailure: true, tools: [[pattern: '**/target/pmd.xml', tool: [$class: 'Pmd']]]
         }
     }
 }
