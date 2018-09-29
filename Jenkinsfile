@@ -15,9 +15,19 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean install'
-                jacoco()
+                sh 'mvn --batch-mode -V -U -e clean install'
             }
+        }
+        stage('Analysis') {
+            steps {
+               sh 'mvn --batch-mode -V -U -e pmd:pmd'
+            }
+        }
+    }
+    post {
+        success {
+            jacoco()
+            recordIssues tools: [[tool: [$class 'Pmd'] [pattern: '**/target/pmd.xml']]]
         }
     }
 }

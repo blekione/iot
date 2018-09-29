@@ -1,10 +1,10 @@
 {"node1": 
   {
-    "board": "Wio Node v1.0",
-    "sn": "1b2edc28abe197b7f443618db2181f12",
-    "token": "24dc55c37fc032db8c99590d69554f4e",
-    "lat": 0.0,
-    "lng": 0.0,
-    "reader": "HTTPReader"
+    "board": "${node1.board}",
+    "sn": "${node1.sn}",
+    "token": "${node1.token}",
+    "lat": "${node1.lat}",
+    "lng": "${node1.lng}",
+    "reader": "${node1.reader}"
   }
 }
