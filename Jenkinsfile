@@ -27,7 +27,7 @@ pipeline {
     post {
         success {
             jacoco()
-            recordIssues tools: [[tool: [$class 'Pmd'] [pattern: '**/target/pmd.xml']]]
+            recordIssues tools: [[tool: [$class 'Pmd'], pattern: '**/target/pmd.xml']]
         }
     }
 }
