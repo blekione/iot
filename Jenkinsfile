@@ -21,12 +21,12 @@ pipeline {
         stage('Analysis') {
             steps {
                 sh 'mvn --batch-mode -V -U -e pmd:pmd'
-                jacoco()
             }
         }
     }
     post {
         success {
+            jacoco()
             recordIssues enabledForFailure: true, tools: [[pattern: '**/target/pmd.xml', tool: [$class: 'Pmd']]]
         }
     }
