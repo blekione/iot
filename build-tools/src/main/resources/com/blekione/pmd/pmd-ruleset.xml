@@ -8,13 +8,21 @@
      The PMD ruleset for iot project.
   </description>
   
+  <rule ref="category/java/bestpractices.xml/ArrayIsStoredDirectly" />
   <rule ref="category/java/bestpractices.xml/AvoidUsingHardCodedIP" />
   <rule ref="category/java/bestpractices.xml/CheckResultSet" />
+  <rule ref="category/java/bestpractices.xml/DefaultLabelNotLastInSwitchStmt" />
+  <rule ref="category/java/bestpractices.xml/GuardLogStatement" />
+  <rule ref="category/java/bestpractices.xml/LooseCoupling" />
+  <rule ref="category/java/bestpractices.xml/MethodReturnsInternalArray" />
+  <rule ref="category/java/bestpractices.xml/PositionLiteralsFirstInCaseInsensitiveComparisons" />
+  <rule ref="category/java/bestpractices.xml/PositionLiteralsFirstInComparisons" />
   <rule ref="category/java/bestpractices.xml/UnusedImports" />
   <rule ref="category/java/bestpractices.xml/UnusedFormalParameter" />
   <rule ref="category/java/bestpractices.xml/UnusedLocalVariable" />
   <rule ref="category/java/bestpractices.xml/UnusedPrivateField" />
   <rule ref="category/java/bestpractices.xml/UnusedPrivateMethod" />
+  <rule ref="category/java/bestpractices.xml/UseCollectionIsEmpty" />
 
   <rule ref="category/java/codestyle.xml/DontImportJavaLang" />
   <rule ref="category/java/codestyle.xml/DuplicateImports" />
@@ -27,6 +35,9 @@
   <rule ref="category/java/codestyle.xml/UselessParentheses" />
   <rule ref="category/java/codestyle.xml/UselessQualifiedThis" />
 
+  <rule ref="category/java/design.xml/AvoidDeeplyNestedIfStmts" />
+  <rule ref="category/java/design.xml/AvoidRethrowingException" />
+  <rule ref="category/java/design.xml/AvoidThrowingNullPointerException" />
   <rule ref="category/java/design.xml/CollapsibleIfStatements" />
   <rule ref="category/java/design.xml/SimplifiedTernary" />
   <rule ref="category/java/design.xml/UselessOverridingMethod" />
