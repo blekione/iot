@@ -12,6 +12,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <!-- ${maven.multiModuleProjectDirectory} requires .mvn directory to work - https://stackoverflow.com/a/49528226/1779488 -->
+    <root.dir>${maven.multiModuleProjectDirectory}</root.dir>
   </properties>
 
   <dependencyManagement>
@@ -95,7 +97,6 @@
             <archive>
               <manifest>
                 <addClasspath>true</addClasspath>
-                <classpathPrefix>lib/</classpathPrefix>
                 <mainClass>com.blekione.iot/App</mainClass>
               </manifest>
             </archive>
@@ -113,7 +114,7 @@
           <executions>
             <execution>
               <id>make-assembly</id> 
-              <phase>package</phase> <!-- bind to the packaging phase -->
+              <phase>package</phase>
               <goals>
                 <goal>single</goal>
               </goals>
@@ -188,14 +189,26 @@
     </plugins>
 
     <filters>
-    <!-- ${maven.multiModuleProjectDirectory} requires .mvn directory to work - https://stackoverflow.com/a/49528226/1779488 -->
-      <filter>${maven.multiModuleProjectDirectory}/filters/default.properties</filter>
+      <filter>${root.dir}/filters/default.properties</filter>
     </filters>
   </build>
 
+  <profiles>
+    <profile>
+      <id>eclipse-profile</id>
+      <properties>
+      <!-- this cleans errors in eclipse as m2e has problem with maven.multiModuleProjectDirectory variable -->
+<!--         <root.dir>/home/blekione/git/iot</root.dir> -->
+      </properties>
+      <build>
+	      <directory>target-eclipse</directory>
+      </build>
+    </profile>
+  </profiles>
+
   <modules>
+    <module>build-tools</module>
     <module>sensor-reader</module>
     <module>kafka-producer</module>
-    <module>build-tools</module>
   </modules>
 </project>
